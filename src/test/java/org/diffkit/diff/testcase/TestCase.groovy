@@ -133,7 +133,7 @@ public class TestCase implements Comparable<TestCase>{
       String[] lines = StringUtils.split(exceptionString, '\n')
       if(!lines.length == 2)
          throw new RuntimeException(String.format("invalid exception file contents [%s]", exceptionString))
-      Class exceptionClass = Class.forName(lines[0])
+      Class exceptionClass = Class.forName(lines[0].trim())
       Constructor exceptionConstructor = exceptionClass.getDeclaredConstructor(String.class)
       return exceptionConstructor.newInstance(lines[1])
    }
